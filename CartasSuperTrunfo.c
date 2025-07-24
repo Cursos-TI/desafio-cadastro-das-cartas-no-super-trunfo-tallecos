@@ -78,15 +78,15 @@ char cod1[10],cod2[10],enter[3];
     sprintf(cod1,"%s%d",uf1,carta1); //sprintf faz a junção do que foi obtido no scanf e printa 
     printf("---CARD 1---\n--ESTADO: %s\n--CODIGO: %s\n--CIDADE: %s\n--AREA: %.2f KM²\n",uf1,cod1,cidade1,area1);
     printf("--POPULACAO: %d\n--PIB: %.2f REAIS\n--TOUR: %d PONTOS TURISTICOS\n",pop1,pib1,tour1);
-    printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%fREAIS\n",dens1,cap1);
+    printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%.2fREAIS\n",dens1,cap1);
 
 
     printf("\n\n\n-------------------\n\n\n");
 //EXIBIÇÃO DA CARTA 2
     sprintf(cod2,"%s%d",uf2,carta2);
-    printf("---CARD 1---\n--ESTADO: %s\n--CODIGO: %s\n--CIDADE: %s\n--AREA: %.2f KM²\n",uf2,cod2,cidade2,area2);
+    printf("---CARD 2---\n--ESTADO: %s\n--CODIGO: %s\n--CIDADE: %s\n--AREA: %.2f KM²\n",uf2,cod2,cidade2,area2);
     printf("--POPULACAO: %d\n--PIB: %.2f REAIS\n--TOUR: %d PONTOS TURISTICOS\n",pop2,pib2,tour2);
-    printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%fREAIS\n",dens2,cap2);
+    printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%.2fREAIS\n",dens2,cap2);
 
 
     printf("\n\n\n-------------------\n\n\n");
