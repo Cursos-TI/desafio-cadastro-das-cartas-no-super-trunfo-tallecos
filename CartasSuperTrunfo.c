@@ -3,7 +3,8 @@ int main() {
 
 char uf1[3],uf2[3],cidade1[20],cidade2[20];
 float pib1,pib2,area1,area2,dens1,dens2,cap1,cap2;
-int tour1,tour2,carta1,carta2,pop1,pop2; 
+int tour1,tour2,carta1,carta2;
+unsigned long int pop1,pop2; //definido como unsigned long int para mais numeros positivos.
 char cod1[10],cod2[10],enter[3];
 
 
@@ -69,6 +70,11 @@ char cod1[10],cod2[10],enter[3];
     cap2 = (float) pib2 / pop2;
 
 
+/*Alterações para o exercicio nivel mestre.
+Criação de SUPER PODER, onde a soma é Populaçao, area, PIB, PIB per capta, Densidade populacional invertida.*/
+
+float superpoder1 = pop1 + area1 + pib1 + cap1 + (1/dens1);
+float superpoder2 = pop2 + area2 + pib2 + cap2 + (1/dens2);
 
 
     //RESULTADO APÓS O SCANF
@@ -79,7 +85,7 @@ char cod1[10],cod2[10],enter[3];
     printf("---CARD 1---\n--ESTADO: %s\n--CODIGO: %s\n--CIDADE: %s\n--AREA: %.2f KM²\n",uf1,cod1,cidade1,area1);
     printf("--POPULACAO: %d\n--PIB: %.2f REAIS\n--TOUR: %d PONTOS TURISTICOS\n",pop1,pib1,tour1);
     printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%.2f REAIS\n",dens1,cap1);
-
+    printf("Super Poder: %.2f\n",superpoder1);
 
     printf("\n\n\n-------------------\n\n\n");
 //EXIBIÇÃO DA CARTA 2
@@ -87,7 +93,20 @@ char cod1[10],cod2[10],enter[3];
     printf("---CARD 2---\n--ESTADO: %s\n--CODIGO: %s\n--CIDADE: %s\n--AREA: %.2f KM²\n",uf2,cod2,cidade2,area2);
     printf("--POPULACAO: %d\n--PIB: %.2f REAIS\n--TOUR: %d PONTOS TURISTICOS\n",pop2,pib2,tour2);
     printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%.2f REAIS\n",dens2,cap2);
-
+    printf("Super Poder: %.2f\n",superpoder2);
+  
+    printf("\n\n\n\n\n======================================\n");
+    /*Alteração para nivel mestre
+    Comparação simples de cartas*/ 
+    printf("----COMPARAÇÃO DAS CARTAS----\n");
+    printf("||||1 = CARTA %s GANHOU!||||0 = CARTA %s GANHOU!||||\n",uf1, uf2);
+    printf("População:%d\n", (pop1>pop2));
+    printf("Área: %d\n",(area1>area2));
+    printf("PIB: %d\n",(pib1>pib2));
+    printf("Densidade Populacional:%d\n",(dens1<dens2));
+    printf("PIB per Capta:%d\n", (cap1>cap2));
+    printf("Pontos Turisticos:%d\n",(tour1>tour2));
+    printf("SUPERPODER:%d\n",(superpoder1>superpoder2));
 
     printf("\n\n\n-------------------\n\n\n");
 
