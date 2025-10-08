@@ -1,15 +1,15 @@
 #include <stdio.h>
 int main() {
 
-char uf1[3],uf2[3],cidade1[20],cidade2[20];
-float pib1,pib2,area1,area2,dens1,dens2,cap1,cap2;
+char estado1[3],estado2[3],cidade1[20],cidade2[20];
+float pib1,pib2,area1,area2,densidadepopulacional1,densidadepopulacional2,pibpercapta1,pibpercapta2;
 int tour1,tour2,carta1,carta2;
-unsigned long int pop1,pop2; //definido como unsigned long int para mais numeros positivos.
+unsigned long int populacao1,populacao2; //definido como unsigned long int para mais numeros positivos.
 char cod1[10],cod2[10],enter[3];
 
 
 //INICIO
-    printf("///---Bem-Vindo ao supertrunfo Brasil do Tallecos!---///\n");
+    printf("///---Bem-Vindo ao supertrunfo Brasil By Tallecos!---///\n");
     
     //ENTRADA DE DADOS CARTA 1
     printf("---CARD 1---\n Digite o nome da cidade:\n");
@@ -22,7 +22,7 @@ char cod1[10],cod2[10],enter[3];
     scanf("%f",&pib1);
 
     printf("Digite o numero da populacao:\n");
-    scanf("%d",&pop1);
+    scanf("%ld",&populacao1);
 
     printf("Quantos pontos turisticos existe na cidade?\n");
     scanf("%d",&tour1);
@@ -31,7 +31,7 @@ char cod1[10],cod2[10],enter[3];
     scanf("%f",&area1);
 
     printf("Digite uma letra do alfabeto entre --A e H-- para representar sua carta:\n");
-    scanf("%2s",uf1);
+    scanf("%2s",estado1);
 
     printf("Digite um numero para sua carta:\n");
     scanf("%d",&carta1);
@@ -45,7 +45,7 @@ char cod1[10],cod2[10],enter[3];
     scanf("%f",&pib2);
 
     printf("Digite o numero da populacao:\n");
-    scanf("%d",&pop2);
+    scanf("%ld",&populacao2);
 
     printf("Quantos pontos turisticos existe na cidade?\n");
     scanf("%d",&tour2);
@@ -54,61 +54,186 @@ char cod1[10],cod2[10],enter[3];
     scanf("%f",&area2);
 
     printf("Digite uma letra do alfabeto entre --A e H-- para representar sua carta:\n");
-    scanf("%2s",uf2);
+    scanf("%2s",estado2);
 
     printf("Digite um numero para sua carta:\n");
     scanf("%d",&carta2); //%d DOUBLE é um especificador de formato, uilizado para números inteiros (arredonda)
 
 
 //(float) é um cast, O cast só afeta o valor no momento da operação. Ele não altera o tipo original da variável.
-    dens1 =(float) pop1 / area1;
+    densidadepopulacional1 =(float) populacao1 / area1;
 
-    cap1 = (float) pib1 / pop1;      //CALCULA O QUE ENTROU DE DADOS, DIVIDINDO E DEFININDO UMA NOVA
+    pibpercapta1 = (float) pib1 / populacao1;      //CALCULA O QUE ENTROU DE DADOS, DIVIDINDO E DEFININDO UMA NOVA
                                     // NUMERAÇÃO QUE SERÁ ATRIBUIDA EM UMA NOVA INFORMAÇÃO PARA EXIBIÇÃO.
-    dens2 =(float) pop2 / area2;
+    densidadepopulacional2 =(float) populacao2 / area2;
 
-    cap2 = (float) pib2 / pop2;
+    pibpercapta2 = (float) pib2 / populacao2;
 
 
 /*Alterações para o exercicio nivel mestre.
 Criação de SUPER PODER, onde a soma é Populaçao, area, PIB, PIB per capta, Densidade populacional invertida.*/
 
-float superpoder1 = pop1 + area1 + pib1 + cap1 + (1/dens1);
-float superpoder2 = pop2 + area2 + pib2 + cap2 + (1/dens2);
+float superpoder1 = populacao1 + area1 + pib1 + pibpercapta1 + (1/densidadepopulacional1);
+float superpoder2 = populacao2 + area2 + pib2 + pibpercapta2 + (1/densidadepopulacional2);
 
 
     //RESULTADO APÓS O SCANF
 
     printf("\n\n\n-------------------\n\n\n");
 //EXIBIÇÃO DA CARTA 1  
-    sprintf(cod1,"%s%d",uf1,carta1); //sprintf faz a junção do que foi obtido no scanf e printa 
-    printf("---CARD 1---\n--ESTADO: %s\n--CODIGO: %s\n--CIDADE: %s\n--AREA: %.2f KM²\n",uf1,cod1,cidade1,area1);
-    printf("--POPULACAO: %d\n--PIB: %.2f REAIS\n--TOUR: %d PONTOS TURISTICOS\n",pop1,pib1,tour1);
-    printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%.2f REAIS\n",dens1,cap1);
+    sprintf(cod1,"%s%d",estado1,carta1); //sprintf faz a junção do que foi obtido no scanf e printa 
+    printf("---CARD 1---\n--ESTADO: %s\n--CODIGO: %s\n--CIDADE: %s\n--AREA: %.2f KM²\n",estado1,cod1,cidade1,area1);
+    printf("--POPULACAO: %ld\n--PIB: %.2f REAIS\n--TOUR: %d PONTOS TURISTICOS\n",populacao1,pib1,tour1);
+    printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%.2f REAIS\n",densidadepopulacional1,pibpercapta1);
     printf("Super Poder: %.2f\n",superpoder1);
 
     printf("\n\n\n-------------------\n\n\n");
 //EXIBIÇÃO DA CARTA 2
-    sprintf(cod2,"%s%d",uf2,carta2);
-    printf("---CARD 2---\n--ESTADO: %s\n--CODIGO: %s\n--CIDADE: %s\n--AREA: %.2f KM²\n",uf2,cod2,cidade2,area2);
-    printf("--POPULACAO: %d\n--PIB: %.2f REAIS\n--TOUR: %d PONTOS TURISTICOS\n",pop2,pib2,tour2);
-    printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%.2f REAIS\n",dens2,cap2);
+    sprintf(cod2,"%s%d",estado2,carta2);
+    printf("---CARD 2---\n--ESTADO: %s\n--CODIGO: %s\n--CIDADE: %s\n--AREA: %.2f KM²\n",estado2,cod2,cidade2,area2);
+    printf("--POPULACAO: %ld\n--PIB: %.2f REAIS\n--TOUR: %d PONTOS TURISTICOS\n",populacao2,pib2,tour2);
+    printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%.2f REAIS\n",densidadepopulacional2,pibpercapta2);
     printf("Super Poder: %.2f\n",superpoder2);
   
     printf("\n\n\n\n\n======================================\n");
-    /*Alteração para nivel mestre
-    Comparação simples de cartas*/ 
-    printf("----COMPARAÇÃO DAS CARTAS----\n");
-    printf("||||1 = CARTA %s GANHOU!||||0 = CARTA %s GANHOU!||||\n",uf1, uf2);
-    printf("População:%d\n", (pop1>pop2));
-    printf("Área: %d\n",(area1>area2));
-    printf("PIB: %d\n",(pib1>pib2));
-    printf("Densidade Populacional:%d\n",(dens1<dens2));
-    printf("PIB per Capta:%d\n", (cap1>cap2));
-    printf("Pontos Turisticos:%d\n",(tour1>tour2));
-    printf("SUPERPODER:%d\n",(superpoder1>superpoder2));
 
-    printf("\n\n\n-------------------\n\n\n");
+    //comparações para vitória
+        int compararpopulacao = populacao1 > populacao2;
+        int compararpib = pib1 > pib2;
+        int comparartour = tour1 > tour2;
+        int comparardensidade = densidadepopulacional1 < densidadepopulacional2;
+        int comparararea = area1 > area2;
+        int compararpibpercapta = pibpercapta1 > pibpercapta2;
+    //comparação para empate 
+        int empatepopulacao = populacao1 == populacao2;
+        int empatepib = pib1 == pib2;
+        int empatetour = tour1 == tour2;
+        int empatedensidade = densidadepopulacional1 == densidadepopulacional2;
+        int empatearea = area1 == area2;
+        int empatepibpercapta = pibpercapta1 == pibpercapta2;
+
+        int vitoriacidade1 = 0, vitoriacidade2 = 0;
+
+    int opcao;
+
+    printf("###############################\n");
+    printf("Escolha um atriuto para comparar\n");
+    printf("1. Populacao\n");
+    printf("2. Area\n");
+    printf("3. Pontos Turisticos\n");
+    printf("4. Densidade Populacional\n");
+    printf("5. PIB\n");
+    printf("6. PIB Per Capta\n");
+    printf("Opcao:  ");
+    scanf("%d",&opcao);
+
+
+
+     // print das comparações
+
+     switch(opcao){
+        case 1:
+     //COMPARAÇÃO DE POPULAÇÃO
+     printf("____________________________________________________________________\n");
+     printf("Populacao de %s: %ld || Populacao de %s: %ld \n\n",cidade1,populacao1,cidade2,populacao2);
+     if(compararpopulacao){
+        printf("==A POPULACAO DE %s GANHOU!==\n\n\n",cidade1);
+                      //vitoriacidade1++;
+         }else if(empatepopulacao){
+            printf("==A POPULACAO DE %s E %s EMPATARAM!==\n\n\n",cidade1,cidade2);
+         } else{
+                printf("==A POPULACAO DE %s GANHOU!==\n\n\n",cidade2);
+                        //vitoriacidade2++;
+         }
+         break;
+         //COMPARAÇÃO DE ÁREA
+         case 2:
+     printf("____________________________________________________________________\n");        
+           printf("Area de %s: %.2f || Area de %s: %.2f \n\n",cidade1,area1,cidade2,area2);
+     if(comparararea){
+        printf("==AREA de %s GANHOU!==\n\n\n",cidade1);
+               // vitoriacidade1++;
+         } else if(empatearea){
+            printf("==A AREA DE %s E %s EMPATARAM!==\n\n\n",cidade1,cidade2);
+         }else{
+                printf("==AREA de %s GANHOU!==\n\n\n",cidade2);
+                    //vitoriacidade2++;
+            }
+            break;
+         //COMPARAÇÃO DE PONTOS TURÍSTICOS
+         case 3:
+     printf("____________________________________________________________________\n");
+         printf("Pontos turisticos de %s: %d || Pontos turisticos de %s: %d \n\n",cidade1,tour1,cidade2,tour2);
+     if(comparartour){
+        printf("==OS PONTOS TURISTICOS DE %s GANHOU!==\n\n\n",cidade1);
+                //vitoriacidade1++;
+         }else if(empatetour){
+            printf("==OS PONTOS TURISTICOS DE %s E %s EMPATARAM!==\n\n\n",cidade1,cidade2);
+         } 
+         else{
+                printf("==OS PONTOS TURISTICOS DE %s GANHOU!==\n\n\n",cidade2);
+                        //vitoriacidade2++;
+         }
+         break;
+         //COMPARAÇÃO DE DENSIDADE POPULACIONAL
+         case 4:
+     printf("____________________________________________________________________\n");
+         printf("Densidade Populacional de %s: %.2f || Densidade Populacional de %s: %.2f \n\n",cidade1,densidadepopulacional1,cidade2,densidadepopulacional2);
+     if(comparardensidade){
+        printf("==DENSIDADE POPULACIONAL DE %s GANHOU!==\n\n\n",cidade1);
+                //vitoriacidade1++;
+         } else if(empatedensidade){
+            printf("==A DENSIDADE DE %s E %s EMPATARAM!== \n\n\n",cidade1,cidade2);
+                 }
+         else{
+                printf("==DENSIDADE POPULACIONAL DE %s GANHOU!==\n\n\n",cidade2);
+                            //vitoriacidade2++;
+         }
+         break;
+
+        //COMPARAÇÃO DE PIB
+        case 5:
+     printf("____________________________________________________________________\n");
+        printf("PIB de %s: %.2f || PIB de %s: %.2f \n\n",cidade1,pib1,cidade2,pib2);
+     if(compararpib){
+        printf("==O PIB DE %s GANHOU!==\n\n\n",cidade1);
+               // vitoriacidade1++;
+         } else if(empatepib){
+            printf("==O PIB DE %s E %s EMPATARAM!== \n\n\n",cidade1,cidade2);
+                 }
+         else{
+                printf("==PIB DE %s GANHOU!==\n\n\n",cidade2);
+                       // vitoriacidade2++;
+         }
+         break;
+         //COMPARAÇÃO DE PIB PER CAPTA
+         case 6:
+     printf("____________________________________________________________________\n");
+         printf("PIB per capta de %s: %.2f || PIB per capta de %s: %.2f \n\n",cidade1,pibpercapta1,cidade2,pibpercapta2);
+     if(compararpib){
+        printf("==O PIB DE %s GANHOU!==\n\n\n",cidade1);
+               // vitoriacidade1++;
+         } else if(empatepib){
+            printf("==O PIB DE %s E %s EMPATARAM!== \n\n\n",cidade1,cidade2);
+                 }
+         else{
+                printf("==PIB DE %s GANHOU!==\n\n\n",cidade2);
+                       // vitoriacidade2++;
+         }
+         break;
+
+         default:
+         printf("Opcao invalida\n");
+        }
+  /*  if(vitoriacidade1>vitoriacidade2){
+        printf("=== CIDADE %s GANHOU COM %d PONTOS! ===\n",cidade1,vitoriacidade1);
+
+    } else {
+        printf("=== CIDADE %s GANHOU COM %d PONTOS! ===\n",cidade2,vitoriacidade2);
+
+    }
+
+*/
 
     printf("Pressione F e ENTER para finalizar.\n");
     scanf("%s",enter);
