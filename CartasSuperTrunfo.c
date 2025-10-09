@@ -1,7 +1,7 @@
 #include <stdio.h>
 int main() {
 
-char estado1[3],estado2[3],pais1[20],pais2[20];
+char letra[3],letra2[3],pais1[20],pais2[20];
 float pib1,pib2,area1,area2,densidadepopulacional1,densidadepopulacional2,pibpercapta1,pibpercapta2;
 int tour1,tour2,carta1,carta2;
 unsigned long int populacao1,populacao2; //definido como unsigned long int para mais numeros positivos.
@@ -31,7 +31,7 @@ char cod1[10],cod2[10],enter[3];
     scanf("%f",&area1);
 
     printf("Digite uma letra do alfabeto entre --A e H-- para representar sua carta:\n");
-    scanf("%2s",estado1);
+    scanf("%2s",letra);
 
     printf("Digite um numero para sua carta:\n");
     scanf("%d",&carta1);
@@ -50,11 +50,11 @@ char cod1[10],cod2[10],enter[3];
     printf("Quantos pontos turisticos existem no pais?\n");
     scanf("%d",&tour2);
 
-    printf("Qual a Area da cidade?\n");
+    printf("Qual a Area do pais?\n");
     scanf("%f",&area2);
 
     printf("Digite uma letra do alfabeto entre --A e H-- para representar sua carta:\n");
-    scanf("%2s",estado2);
+    scanf("%2s",letra2);
 
     printf("Digite um numero para sua carta:\n");
     scanf("%d",&carta2); //%d DOUBLE é um especificador de formato, uilizado para números inteiros (arredonda)
@@ -81,16 +81,16 @@ float superpoder2 = populacao2 + area2 + pib2 + pibpercapta2 + (1/densidadepopul
 
     printf("\n\n\n-------------------\n\n\n");
 //EXIBIÇÃO DA CARTA 1  
-    sprintf(cod1,"%s%d",estado1,carta1); //sprintf faz a junção do que foi obtido no scanf e printa 
-    printf("---CARD 1---\n--ESTADO: %s\n--CODIGO: %s\n--PAIS: %s\n--AREA: %.2f KM²\n",estado1,cod1,pais1,area1);
+    sprintf(cod1,"%s%d",letra,carta1); //sprintf faz a junção do que foi obtido no scanf e printa 
+    printf("---CARD 1---\n--ESTADO: %s\n--CODIGO: %s\n--PAIS: %s\n--AREA: %.2f KM²\n",letra,cod1,pais1,area1);
     printf("--POPULACAO: %ld\n--PIB: %.2f REAIS\n--TOUR: %d PONTOS TURISTICOS\n",populacao1,pib1,tour1);
     printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%.2f REAIS\n",densidadepopulacional1,pibpercapta1);
     printf("Super Poder: %.2f\n",superpoder1);
 
     printf("\n\n\n-------------------\n\n\n");
 //EXIBIÇÃO DA CARTA 2
-    sprintf(cod2,"%s%d",estado2,carta2);
-    printf("---CARD 2---\n--ESTADO: %s\n--CODIGO: %s\n--PAIS: %s\n--AREA: %.2f KM²\n",estado2,cod2,pais2,area2);
+    sprintf(cod2,"%s%d",letra2,carta2);
+    printf("---CARD 2---\n--ESTADO: %s\n--CODIGO: %s\n--PAIS: %s\n--AREA: %.2f KM²\n",letra2,cod2,pais2,area2);
     printf("--POPULACAO: %ld\n--PIB: %.2f REAIS\n--TOUR: %d PONTOS TURISTICOS\n",populacao2,pib2,tour2);
     printf("--DENSIDADE POPULACIONAL:%f HAB/Km²\n--PIB PER CAPTA:%.2f REAIS\n",densidadepopulacional2,pibpercapta2);
     printf("Super Poder: %.2f\n",superpoder2);
@@ -135,7 +135,7 @@ float superpoder2 = populacao2 + area2 + pib2 + pibpercapta2 + (1/densidadepopul
         case 1:
      //COMPARAÇÃO DE POPULAÇÃO
      printf("____________________________________________________________________\n");
-     printf("Populacao de %s: %ld || Populacao de %s: %ld \n\n",cidade1,populacao1,cidade2,populacao2);
+     printf("Populacao de %s: %ld || Populacao de %s: %ld \n\n",pais1,populacao1,pais2,populacao2);
      if(compararpopulacao){
         printf("==A POPULACAO DE %s GANHOU!==\n\n\n",pais1);
                       //vitoriacidade1++;
